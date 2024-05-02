@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Client Registration Form</title>
+</head>
+<style>
+body {
+	background-image:
+		url(https://img.freepik.com/free-photo/shopping-cart-full-products-inside-supermarket_123827-28166.jpg?size=626&ext=jpg&ga=GA1.1.523418798.1711584000&semt=ais);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.form {
+	font-size: 30px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: fit-content;
+	align-items: center;
+	margin: auto;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: rgba(59, 171, 188, 0.5);
+	box-shadow: inset -5px -5px rgba(175, 66, 162, 0.5);
+	border-radius: 25px;
+}
+
+h1 {
+	color: rgb(222, 139, 57);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 50px;
+	text-shadow: 2px 2px 5px rgb(200, 255, 0);
+}
+
+input {
+	width: 200px;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 15px;
+	outline: none;
+	border: none;
+}
+
+.form .btn {
+	background-color: rgb(114, 198, 46);
+	color: rgb(157, 94, 31);
+	font-size: 1.5rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	cursor: pointer;
+	box-shadow: 4px 4px 4px;
+	transition: .4s ease;
+}
+
+.form .btn:hover {
+	background-color: transparent;
+}
+
+.divi {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	width: fit-content;
+	border: 1px solid black;
+	align-items: center;
+	margin: auto;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: rgba(246, 123, 15, 0.8);
+	box-shadow: inset -5px -5px rgba(0, 0, 0, 0.5);
+	border-radius: 25px;
+}
+
+.butt {
+	margin-left: 40px;
+	margin-right: 40px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: rgb(145, 74, 153);
+	color: wheat;
+	font-size: 1.5rem;
+	cursor: pointer;
+	box-shadow: 4px 4px 4px;
+	transition: .4s ease;
+}
+
+button:hover {
+	background-color: transparent;
+}
+</style>
+<body>
+	<form action="clientregister" method="post" class="form"
+		autocomplete="off" autocapitalize="Online">
+		<h1>Client Registration Form 👇</h1>
+		<table>
+			<tr>
+				<td>User Name/ID :</td>
+				<td><input type="text" name="uname" id="uname"
+					placeholder="Enter Username or ID"></td>
+			</tr>
+			<tr>
+				<td>Password :</td>
+				<td><input type="password" name="pword" id="pword"
+					placeholder="Enter Password"></td>
+			</tr>
+			<tr>
+				<td>First Name :</td>
+				<td><input type="text" name="fname"
+					placeholder="Enter First Name" required></td>
+			</tr>
+			<tr>
+				<td>Last Name :</td>
+				<td><input type="text" name="lname"
+					placeholder="Enter Last Name" required></td>
+			<tr>
+			<tr>
+				<td>D.O.B :</td>
+				<td><input type="date" name="dob" placeholder="Enter Password"
+					required></td>
+			</tr>
+
+			<tr>
+				<td>Gender :</td>
+				<td><input type="radio" name="Gender" value="Male">
+					Male <br> <input type="radio" name="Gender" value="Female">Female
+				</td>
+			</tr>
+			<tr>
+				<td>E-mail :</td>
+				<td><input type="email" name="mid"
+					placeholder="Enter E-mail Id" required></td>
+			</tr>
+			<tr>
+				<td>Phone.No :</td>
+				<td><input type="number" name="phno" id="phno"
+					placeholder="Enter Phone No" required></td>
+			</tr>
+			<tr>
+				<td>City :</td>
+				<td><input type="text" name="city"
+					placeholder="Enter Your City" required></td>
+			</tr>
+			<tr>
+				<td>State :</td>
+				<td><input type="text" name="state"
+					placeholder="Enter Your State" required></td>
+			</tr>
+			<tr>
+				<td>Pincode :</td>
+				<td><input type="text" name="pincode" id="pincode"
+					placeholder="Enter Area Pincode" required></td>
+			</tr>
+			<tr>
+				<td><input type="reset" class="btn"></td>
+				<td><input type="submit" value="Register" class="btn"
+					onclick="return formValidate()"></td>
+			</tr>
+
+
+		</table>
+	</form>
+
+	<div class="divi">
+		<a href="ClientLogin.html"><button class="butt">Already
+				Register/Login</button></a>
+				 <a href="choice.html"><button class="butt">Home
+				Page</button></a>
+	</div>
+
+	<script>
+		function formValidate() {
+			var uname = document.getElementById("uname").value;
+			var password = document.getElementById("pword").value;
+			var phoneNo = document.getElementById("phno").value;
+			var pcode = document.getElementById("pincode").value;
+
+			if (uname === "") {
+				alert("Must be filled user name/id!");
+				return false;
+			}
+			if (password === "") {
+				alert("Must be filled password!!");
+				return false;
+			} else if (password.length < 8) {
+				alert("Password must be 8 digits");
+				return false;
+
+			} else if (phoneNo.length<10n || phoneNo.length>10) {
+				alert("Phone no must be 10 digits");
+				return false;
+
+			} else if (pcode.length<6 || pcode.length>6) {
+				alert("Picode must be only 6 digits");
+				return false;
+
+			}
+
+		}
+	</script>
+</body>
+</html>
